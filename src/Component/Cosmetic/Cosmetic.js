@@ -1,5 +1,5 @@
 import React from "react";
-import { addToDb } from "../../Utiliti/fakedb";
+import { addToDb, removeFromDataBase } from "../../Utiliti/fakedb";
 import "./Cosmetic.css";
 
 const Cosmetic = (props) => {
@@ -18,6 +18,10 @@ const Cosmetic = (props) => {
     /* সিসেটম 2 এর সময় এটার প্রয়োজন পড়বেনা কারন  () => addToCart(id) এই ফাংশন টা সরাসরি বাটনে  যোগ করে দেওয়া হবে */
   }
 
+  const revomeFromCart = (id) => {
+    removeFromDataBase(id);
+  };
+
   
   return (
     <div className="product">
@@ -30,7 +34,7 @@ const Cosmetic = (props) => {
       {/* সিসেটম 2 */}
       <button onClick={() => addToCart(id)}>কার্টে যোগ করুন (সিসেটম 2)</button>
 
-      <button>Remove</button>
+      <button onClick={() => revomeFromCart(id)}>Remove</button>
     </div>
   );
 };
